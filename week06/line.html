@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title></title>
+    <style>
+        .inline-block-box {
+            width:100px;
+            height:150px;
+            background-color:aqua;
+            display: inline-block;
+        } 
+    </style>
+</head>
+<body>
+
+<div style="font-size:50px;line-height:100px;background-color:pink;">
+    <!-- 画出对齐的线 -->
+    <div style="vertical-align:middle;overflow:visible;display: inline-block;width:1px;height:1px;">
+        <div style="width:1000px;height:1px;background-color: red;"></div>
+    </div>
+    <span>Hello good 中文</span>
+    <!-- inline-block基线随着文字变化 -->
+    <!-- <div style="line-height:70px;" class="inline-block-box">a</div> -->
+    <!-- inline-block vertical-align 为top-->
+    <div style="vertical-align: top;line-height:70px;" class="inline-block-box">a<br>b</div>
+
+</div>
+</body>
+</html>
