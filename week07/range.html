@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title></title>
+</head>
+<body>
+<div id="a">123<span style="background-color: pink;">456789</span>0123456789</div>
+<script>
+    let range = new Range()
+    const el = document.getElementById('a')
+    range.setStart(a.childNodes[0], 3)
+    range.setEnd(a.childNodes[2], 3)
+    range.extractContents()
+</script>
+</body>
+</html>
