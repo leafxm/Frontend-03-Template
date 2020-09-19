@@ -1,0 +1,76 @@
+<style>
+    .red, .green, .yellow {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        background: #000;
+    }
+    .light.red {
+        background-color: red;
+    }
+    .light.green {
+        background-color: green;
+    }
+    .light.yellow {
+        background-color: yellow;
+    }
+</style>
+
+ <div class="red"></div>
+ <div class="green"></div>
+ <div class="yellow"></div>
+ <button id="next">next</button>
+<script>
+function green() {
+    var lights = document.getElementsByTagName('div')
+    for (let i =0; i< lights.length; i++) {
+        lights[i].classList.remove('light')
+    }
+    document.querySelector('.green').classList.add('light')
+}
+function red() {
+    var lights = document.getElementsByTagName('div')
+    for (let i =0; i< lights.length; i++) {
+        lights[i].classList.remove('light')
+    }
+    document.querySelector('.red').classList.add('light')
+}
+function yellow() {
+    var lights = document.getElementsByTagName('div')
+    for (let i =0; i< lights.length; i++) {
+        lights[i].classList.remove('light')
+    }
+    document.querySelector('.yellow').classList.add('light')
+}
+function sleep(t) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, t)
+    })
+}
+function happen(el, eventName) {
+    return new Promise((resole, reject) => {
+        el.addEventListener(eventName, resole, {once: true})
+    })
+}
+async function go() {
+  while(true) {
+      green()
+      await sleep(1000)
+      yellow()
+      await sleep(200)
+      red()
+      await sleep(500)
+  }
+}
+async function go1() {
+  while(true) {
+      green()
+      await happen(document.querySelector('#next'), 'click')
+      yellow()
+      await happen(document.querySelector('#next'), 'click')
+      red()
+      await happen(document.querySelector('#next'), 'click')
+  }
+}
+</script>
